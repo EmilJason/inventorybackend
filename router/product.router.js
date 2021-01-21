@@ -8,8 +8,8 @@ router.get("/api/product", (req, res) => {
 
 router.post("/api/product/add", (req, res) => {
   let newProduct = new productModel({
-    description: "Pancit Canton",
-    price: "15.00",
+    description: "Lucky Me beef",
+    price: "10.00",
   });
 
   newProduct.save();
