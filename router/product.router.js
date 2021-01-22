@@ -8,7 +8,7 @@ router.get("/api/product", (req, res) => {
 
 router.post("/api/product/add", (req, res) => {
   let newProduct = new productModel({
-    description: "Lucky Me beef",
+    description: "Lucky Me chicken",
     price: "10.00",
   });
 
