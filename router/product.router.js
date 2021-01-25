@@ -3,7 +3,12 @@ const router = express.Router();
 const productModel = require("../model/product.model");
 
 router.get("/api/product", (req, res) => {
-  res.send("Your in Product API");
+  async function load() {
+    let list = await productModel.find();
+    res.json(list);
+    console.log(list);
+  }
+  load();
 });
 
 router.post("/api/product/add", (req, res) => {

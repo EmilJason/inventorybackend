@@ -10,6 +10,8 @@ mongoose.connect(
   (error) => console.log("Error:", error)
 );
 
+app.use(express.json());
+
 app.get("/", (req, res) => res.send("You are in Home"));
 app.get("/api", (req, res) => res.send("You are in API Home"));
 app.use(require("./router/product.router"));
