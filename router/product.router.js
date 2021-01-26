@@ -22,4 +22,8 @@ router.post("/api/product/add", (req, res) => {
   res.send("saved new Product");
 });
 
+router.put("/api/product/:id/edit", (req, res) => {
+  res.send(req.params.id);
+});
+
 module.exports = router;
