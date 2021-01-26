@@ -12,9 +12,10 @@ router.get("/api/product", (req, res) => {
 });
 
 router.post("/api/product/add", (req, res) => {
+  let { description, price } = req.body;
   let newProduct = new productModel({
-    description: "Lucky Me chicken",
-    price: "10.00",
+    description: description,
+    price: price,
   });
 
   newProduct.save();

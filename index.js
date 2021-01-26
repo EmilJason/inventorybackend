@@ -1,16 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
 const PORT = process.env.PORT || 1995;
 
 const app = express();
 
 mongoose.connect(
-  "mongodb+srv://emilJason:3m1lj450n@inventorycluster.ff5tz.mongodb.net/inventorydata?retryWrites=true&w=majority",
+  process.env.MONGODB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (error) => console.log("Error:", error)
 );
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("You are in Home"));
 app.get("/api", (req, res) => res.send("You are in API Home"));
