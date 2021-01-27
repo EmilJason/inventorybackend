@@ -23,7 +23,15 @@ router.post("/api/product/add", (req, res) => {
 });
 
 router.put("/api/product/:id/edit", (req, res) => {
-  res.send(req.params.id);
+  // res.send(req.params.id);
+  async function search(idquery, values) {
+    let id = await productModel.findByIdAndUpdate(idquery, values);
+    res.send(id);
+  }
+  let editValues = {
+    description: req.body.description,
+  };
+  search(req.params.id, editValues);
 });
 
 module.exports = router;

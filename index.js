@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 const PORT = process.env.PORT || 1995;
 
 const app = express();
+app.use(cors);
 
 mongoose.connect(
   process.env.MONGODB_URI,
