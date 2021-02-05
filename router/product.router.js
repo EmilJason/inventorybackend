@@ -11,6 +11,17 @@ router.get("/api/product", (req, res) => {
   load();
 });
 
+router.get("/api/product/:description", (req, res) => {
+  let searchByDescription = async () => {
+    let result = await productModel.find({
+      description: { $regex: req.params.description },
+    });
+    // res.json(result);
+    console.log(res.json(result));
+  };
+  searchByDescription();
+});
+
 router.post("/api/product/add", (req, res) => {
   let { description, price } = req.body;
   let newProduct = new productModel({
