@@ -20,5 +20,6 @@ app.get("/", (req, res) => res.send("You are in Home"));
 app.get("/api", (req, res) => res.send("You are in API Home"));
 app.use(require("./router/product.router"));
 app.use(require("./router/supplier.router"));
+app.use(require("./router/stock.router"));
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
